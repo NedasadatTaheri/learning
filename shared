@@ -1,0 +1,41 @@
+1. Create a new directory, named how you like. In the example below it is
+within your home directory.
+mkdir /home/n869p538/directoryname
+2. Grant yourself user ownership of the directory, and Ahmni's group
+(a467p218_g) group ownership.
+sudo chown n869p538:a467p218_g /home/n869p538/directoryname
+3. Change permissions so that the group owner has write and execute access to
+the directory, and set the setgid sticky bit so that group ownership persists.
+sudo chmod g+wxs /home/n869p538/directoryname
+4. Grant "others" execute rights to /home/n869p538 so that Ahmni can enter that
+directory
+sudo chmod o+x /home/n869p538
+5. You can then verify that n869p538 is the user owner, a467p218_g is the group
+owner and test access and file creation.
+ls -ld /home/n869p538/directoryname
+
+
+
+
+
+From the logs on castor, it appears you are running gem5 from the
+/home/n519t593/power/. The ownership of the subfolders there is mixed between
+root and your account, which could potentially cause permission denied errors
+when you run it.
+
+ls -l /home/n519t593/power/gem5-learning
+drwxrwxr-x 6 n519t593 n519t593_g 4096 Nov 22 23:08 configs
+drwxr-xr-x 14 root root 4096 Nov 22 20:38 gem5
+drwxrwxr-x 4 n519t593 n519t593_g 4096 Nov 22 22:07 resources
+
+When you change ownership of the /home/n519t593/power directory, try adding the
+-R argument so that the ownership changes are recursive and apply to all
+subfolders and files, making ownership consistent.
+
+Eg:
+sudo chown -R n519t593:a467p218_g /home/n519t593/power
+
+See if this affects the permission denied error that you are getting. Please
+let us know if you have further questions on this.
+
+Thank you,
