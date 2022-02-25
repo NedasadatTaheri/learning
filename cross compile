@@ -1,0 +1,88 @@
+/home/n519t593/gem5-learning/gem5/util/term$
+./m5term localhost 3456
+
+vi armFS.py
+
+bash run-single.sh
+
+
+less m5out/testsys.terminal
+
+
+
+mv a.out output/target/
+
+arm-linux-gnueabi-gcc output/target/root/hello.c
+
+gcc-arm-linux-gnueabihf
+
+
+/rcS/single/hack_back_ckpt.rcS
+
+vim ../resources/buildroot/output/target/etc/init.d/S98.sh 
+
+gem5-learning/resources/buildroot/output/target/etc/init.d
+
+
+
+sudo apt install gcc-aarch64-linux-gnu qemu-user
+aarch64-linux-gnu-g++ -ggdb3 -static -o hello_world hello_world.c
+qemu-aarch64 -L /usr/aarch64-linux-gnu ./hello_world
+
+cp       /home/n519t593/gem5-learning/resources/buildroot/output/target/sbin
+
+cd <buildroot_dir>
+make ARCH=aarch64 BR2_JLEVEL=$(nproc) CROSS_COMPILE=aarch64-linux-gnu-
+mv output/images/rootfs.ext2 /home/n519t593/gem5-learning/resources
+castor: 
+xhost +local:
+
+
+ ps aux|grep -v root|more
+
+/shared/intel/oneapi/vtune/2021.7.1/socwatch/x64
+sudo ./socwatch -t 60 -f power -m -o results/boot/test -r sum
+
+a467p218/shared/intel/oneapi/vtune/2021.7.1/bin64
+
+./vtune-gui
+
+sudo ./vtune -report <analysis name> -r /home/a467p218/shared/results/energy/<report name> -report-output ~/shared/results/report.csv -format csv
+the 1st directory is the directory of the report the 2nd directory is the directory where u want the report to be
+and the analysis is the analysis that u ran with vtune so like hotspots or memory access
+=sudo ./vtune -report hotspots -r /home/a467p218/shared/result/atomic_4/r000ue/ -report-output /home/a467p218/shared/result/minor_1core.csv -format csv
+
+ps aux |grep -i socwatch
+sudo strace ./socwatch
+
+this is the command i use in case you need to free up memory : sudo bash -c 'echo 10 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages'
+
+
+
+sudo ./vtune -report summary -r /home/a467p218/shared/result/BOOT-Minor/r000ue/ -report-output /home/a467p218/shared/result/BOOT-Minor.csv -format csv 
+
+
+
+/opt/shared/parsec_native/parsec-3.0/bin
+bash parsecmgmt -a run -p splash2x.water_spatial -i native
+bash parsecmgmt -a run -p splash2x.ocean_cp -i native
+bash parsecmgmt -a run -p splash2x.ocean_ncp -i native
+bash parsecmgmt -a run -p splash2x.barnes -i native
+bash parsecmgmt -a run -p splash2x.fmm -i native
+bash parsecmgmt -a run -p splash2x.volrend -i native
+bash parsecmgmt -a run -p splash2x.raytrace -i native
+bash parsecmgmt -a run -p splash2x.radiosity -i native
+bash parsecmgmt -a run -p splash2x.water_nsquared -i native
+
+
+getconf PAGE_SIZE
+
+
+grep HugePages_ /proc/meminfo
+
+sudo LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ~/power/gem5-learning/configs/prifile.sh
+
+hugepage:
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+sudo sysctl -w vm.nr_hugepages=2048
+
