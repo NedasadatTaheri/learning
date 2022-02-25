@@ -1,0 +1,4 @@
+cd ~/.ssh
+cat id_rsa.pub
+ssh -T git@github.com
+git clone
