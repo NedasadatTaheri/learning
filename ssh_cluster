@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -p intel
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -c 1
+#SBATCH --mem=1GB
+#SBATCH -t 01:30:00 
+#SBATCH -J test_job
+#SBATCH -o slurm-%j.out
+
+sh gem5.sh
+
+
+
+tail -f slurm-438346.out
+
+tail slurm-438346.out
+squeue
+
+cat slurm-438341.out 
+cd /work/alian/test/gem5-learning/gem5/
+module load Singularity/3.4.1
+singularity exec /work/alian/gem5.sif scons /work/alian/test/gem5-learning/gem5/build/ARM/gem5.opt
