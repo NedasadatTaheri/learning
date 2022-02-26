@@ -21,3 +21,5 @@ cat slurm-438341.out
 cd /work/alian/test/gem5-learning/gem5/
 module load Singularity/3.4.1
 singularity exec /work/alian/gem5.sif scons /work/alian/test/gem5-learning/gem5/build/ARM/gem5.opt
+
+/panfs/panfs.ittc.ku.edu/work/alian/dpdk-gem5/gem5
